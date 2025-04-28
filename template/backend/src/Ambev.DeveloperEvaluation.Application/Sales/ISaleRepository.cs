@@ -1,15 +1,12 @@
 using Ambev.DeveloperEvaluation.Common.Results;
 using Ambev.DeveloperEvaluation.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Ambev.DeveloperEvaluation.Application.Sales
 {
     /// <summary>
     /// Defines the contract for accessing Sale data.
     /// </summary>
-    public interface ISaleRepository
+    public interface ISaleRepository1
     {
         /// <summary>
         /// Gets a sale by its unique identifier.

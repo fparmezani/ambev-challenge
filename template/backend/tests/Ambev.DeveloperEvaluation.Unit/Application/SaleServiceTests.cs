@@ -2,7 +2,7 @@ using Ambev.DeveloperEvaluation.Application.Sales;
 using Ambev.DeveloperEvaluation.Application.Sales.DTOs;
 using Ambev.DeveloperEvaluation.Application.Sales.Services;
 using Ambev.DeveloperEvaluation.Domain.Entities;
-
+using Ambev.DeveloperEvaluation.Domain.Repositories;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using NSubstitute;

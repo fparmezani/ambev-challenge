@@ -1,3 +1,4 @@
+using Ambev.DeveloperEvaluation.Common.Results;
 using Ambev.DeveloperEvaluation.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,6 @@ public interface ISaleRepository
     Task<IEnumerable<Sale>> GetAllAsync(); // Consider pagination for large datasets
     Task AddAsync(Sale sale);
     Task UpdateAsync(Sale sale);
-    // Delete is often handled by marking as cancelled or soft delete rather than physical removal.
-    // If hard delete is required: Task DeleteAsync(Guid id);
-    // Consider adding methods for specific queries if needed, e.g., GetBySaleNumberAsync
+    Task<PagedResult<Sale>> ListAsync(int pageNumber, int pageSize);
+    
 }

@@ -1,10 +1,7 @@
+using Ambev.DeveloperEvaluation.Common.Results;
 using Ambev.DeveloperEvaluation.Domain.Entities;
 using Ambev.DeveloperEvaluation.Domain.Repositories;
-using Microsoft.EntityFrameworkCore; // Required for EF Core operations
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ambev.DeveloperEvaluation.ORM.Repositories;
 
@@ -40,6 +37,26 @@ public class SaleRepository : ISaleRepository
         return await _context.Sales
                              .Include(s => s.Items)
                              .FirstOrDefaultAsync(s => s.Id == id);
+    }
+
+    public async Task<PagedResult<Sale>> ListAsync(int pageNumber, int pageSize)
+    {
+        if (pageNumber <= 0) pageNumber = 1;
+        if (pageSize <= 0) pageSize = 10;
+
+        var query = _context.Sales
+                            .Include(s => s.Items)
+                            .AsNoTracking();
+
+        var totalCount = await query.CountAsync();
+
+        var sales = await query
+                        .OrderByDescending(s => s.SaleDate) 
+                        .Skip((pageNumber - 1) * pageSize)
+                        .Take(pageSize)
+                        .ToListAsync();
+
+        return new PagedResult<Sale>(sales, totalCount, pageNumber, pageSize);
     }
 
     public Task UpdateAsync(Sale sale)

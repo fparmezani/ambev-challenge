@@ -1,9 +1,7 @@
+using Ambev.DeveloperEvaluation.Domain.Exceptions;
+using Ambev.DeveloperEvaluation.Domain.Repositories; // Assuming a custom exception for Not Found
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Ambev.DeveloperEvaluation.Domain.Exceptions; // Assuming a custom exception for Not Found
 
 namespace Ambev.DeveloperEvaluation.Application.Sales.Commands
 {

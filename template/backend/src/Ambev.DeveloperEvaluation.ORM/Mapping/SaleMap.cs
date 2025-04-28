@@ -20,8 +20,10 @@ public class SaleMap : IEntityTypeConfiguration<Sale>
         builder.Property(s => s.SaleDate)
                .IsRequired();
 
-        builder.Property(s => s.TotalSaleAmount) // Map the calculated property
-               .HasColumnType("decimal(18,2)"); // Define precision
+        //builder.Property(s => s.TotalSaleAmount) // Map the calculated property
+        //       .HasColumnType("decimal(18,2)"); // Define precision
+        
+        builder.Ignore(s => s.TotalSaleAmount);
 
         builder.Property(s => s.Status)
                .IsRequired()
@@ -76,8 +78,10 @@ public class SaleMap : IEntityTypeConfiguration<Sale>
                 .HasColumnType("decimal(3,2)") // e.g., 0.10, 0.20
                 .IsRequired();
 
-            item.Property(i => i.TotalItemAmount) // Map calculated property
-                .HasColumnType("decimal(18,2)");
+            item.Ignore(i => i.TotalItemAmount);
+
+            //item.Property(i => i.TotalItemAmount) // Map calculated property
+            //    .HasColumnType("decimal(18,2)");
 
             // Configure ProductInfo within SaleItem as an owned entity (Value Object)
             item.OwnsOne(i => i.Product, product =>

@@ -1,17 +1,10 @@
-using Ambev.DeveloperEvaluation.Application.Sales.DTOs; // Assuming IProductLookupService is here or in Common
 using Ambev.DeveloperEvaluation.Domain.Entities;
-using Ambev.DeveloperEvaluation.Domain.Common; // For ProductInfo etc if needed
+using Ambev.DeveloperEvaluation.Domain.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Ambev.DeveloperEvaluation.Application.Sales.Commands
 {
-    // Interface assumed for product lookup (can be defined elsewhere)
     public interface IProductLookupService
     {
         Task<ProductInfo?> GetProductInfoByIdAsync(string productId);

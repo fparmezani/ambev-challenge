@@ -1,13 +1,9 @@
 using Ambev.DeveloperEvaluation.Application.Sales.DTOs;
-using Ambev.DeveloperEvaluation.Domain.Common; // For ExternalIdentity
-using Ambev.DeveloperEvaluation.Domain.Entities; // For Sale, SaleItem
+using Ambev.DeveloperEvaluation.Domain.Common;
+using Ambev.DeveloperEvaluation.Domain.Entities;
+using Ambev.DeveloperEvaluation.Domain.Enums;
 using Ambev.DeveloperEvaluation.Domain.Repositories;
-using Ambev.DeveloperEvaluation.Domain.Enums; // Add this using directive
-using Microsoft.Extensions.Logging; // For optional logging
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Ambev.DeveloperEvaluation.Application.Sales.Services;
 
